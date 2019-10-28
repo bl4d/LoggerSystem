@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "5acc02f4-5f7a-4ac4-a0a0-f4b82617081c",
+		"name": "Belatrix -  LoggerSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "logToDataBase",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e28cdd8d-d488-45ef-96df-346b47972bed",
+						"exec": [
+							"const dateNow= new Date();\r",
+							"pm.environment.set('currentDate', dateNow.toISOString());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":7,\n\t\"messageText\":\"Logging Message 7\",\n\t\"timeStamp\":\"{{currentDate}}\",\n\t\"messageType\":\"WARN\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8081/api/logger/logToDataBase",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"logger",
+						"logToDataBase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllDatabaseLogs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/logger/getAllDatabaseLogs",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"logger",
+						"getAllDatabaseLogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logToFile",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "40d01529-de01-4c71-a770-db37236d3966",
+						"exec": [
+							"const dateNow= new Date();\r",
+							"pm.environment.set('currentDate', dateNow.toISOString());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":7,\n\t\"messageText\":\"Logging Message 7\",\n\t\"timeStamp\":\"{{currentDate}}\",\n\t\"messageType\":\"WARN\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8081/api/logger/logToFile",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"logger",
+						"logToFile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logToConsole",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a5253765-8a8c-4dce-a403-76798ec4c793",
+						"exec": [
+							"const dateNow= new Date();\r",
+							"pm.environment.set('currentDate', dateNow.toISOString());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":17,\n\t\"messageText\":\"Logging Message 17\",\n\t\"timeStamp\":\"{{currentDate}}\",\n\t\"messageType\":\"WARN\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8081/api/logger/logToConsole",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"logger",
+						"logToConsole"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
